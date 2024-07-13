@@ -1,0 +1,49 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<ul>
+  <li *ngFor="let food of foods">
+    <a routerLink="/food/{{ food.id }}">
+      <img [src]="food.imageUrl" alt="food.name" />
+      <!-- /Users/sumeet/Desktop/my developments/angular+nodejs+mongodb/frontend/src/assets/food-1.jpeg -->
+      <div class="content">
+        <div class="name">
+          {{ food.name }}
+        </div>
+        <span class="favourite {{ food.favourite ? '' : 'not' }}">❤️</span>
+        <!-- <div class="stars">
+            <star-rating [rating]="3" starCount="5"[readOnly]="false" >
+
+        </star-rating>
+        </div>
+        <div>
+           <star-rating-comp 
+    [starType]="'svg'"
+    [hoverEnabled]="true"
+    [rating]="3"
+    (onClick)="onRate($event)"
+    (onRatingChange)="onRate($event)">
+</star-rating-comp>
+</div> -->
+          <div class="product-item-footer">
+            <div class="origins">
+                <span *ngFor="let origin of food.origins">{{origin}}
+
+                </span>
+
+            </div>
+            <div class="cook-time">
+                <span>⏰</span>
+                {{food.cookTime}}
+            </div>
+
+          </div>
+          <div class="price">
+            <span>
+                {{food.price | currency}}
+            </span>
+          </div>
+    
+      </div>
+    </a>
+  </li>
+</ul>
